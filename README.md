@@ -1,4 +1,6 @@
 # 10X.AI
+![10X.AI](/robot.jpg?raw=true "10X.AI")
+
 "Welcome to the machine, bitch."
 
 
