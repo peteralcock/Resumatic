@@ -149,10 +149,10 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 {
   "_id": "string",
   "company": "string",
+  "title": "string",
   "email": "string",
   "phone": "string",
   "name": "string",
-  "title": "string",
   "resume": "text",
   "linkedin": "string"
 }
@@ -165,11 +165,11 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 {
   "_id": "string",
   "title": "string",
+  "description": "text",
+  "company": "string",
   "email": "string",
   "phone": "string",
   "url": "string",
-  "description": "text"
-
 }
 ```
 
