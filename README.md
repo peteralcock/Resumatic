@@ -147,7 +147,7 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 
 ```json
 {
-  "id": "integer",
+  "_id": "string",
   "company": "string",
   "email": "string",
   "phone": "string",
@@ -163,7 +163,7 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 
 ```json
 {
-  "id": "string",
+  "_id": "string",
   "title": "string",
   "email": "string",
   "phone": "string",
@@ -181,6 +181,5 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
   "job_id": "string",
   "candidate_id": "string",
   "score": "float"
-
 }
 ```
