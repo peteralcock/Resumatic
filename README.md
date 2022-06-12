@@ -127,11 +127,18 @@ You may change any of the required or optional parameters as listed in the [crea
 
 This endpoint will return `200 OK` with the current JSON representation of the candidate if the update was a success. See the [Candidate model](#candidate-model) for more info on the payload.
 
-## Delete resume
+## Removing candidates
 
 - `DELETE /candidates/1` will delete the candidate with an ID of `1`.
 
 This endpoint will return `204 No Content` if successful. No parameters are required.
+
+
+## Detect Hotdog
+
+- `GET /hotdog/eatmorehotdogs` will return a percentile value representing the amount of hotdog found in `eatmorehotdogs`
+- `GET /hotdog/ilikepizza` will return `NOT HOTDOG!` because it has nothing to do with hotdog.
+
 
 
 ## Data Models
