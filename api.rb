@@ -9,6 +9,7 @@ require 'mongoid'
 require 'presume'
 require 'metainspector'
 require 'dotenv'
+require 'bigdecimal/math'
 
 Dotenv.load
 $match_counter = 0
@@ -140,7 +141,16 @@ helpers do
   def candidate
     @candidate ||= Candidate.where(id: params[:id]).first
   end
-
+  
+  def pi(digits=20)
+  result = BigMath.PI(digits)
+  result = result.truncate(digits).to_s
+  result = result[2..-1]
+  result = result.split('e').first
+  result = result.insert(1, '.')
+  result
+end
+  
   def job
     @job ||= Job.where(id: params[:id]).first
   end
@@ -156,10 +166,22 @@ helpers do
 end
 
 get '/' do
-  "ID.AI".to_json
+  "OK".to_json
 end
-namespace '/api/v1' do
 
+namespace '/api/v1' do
+  
+  get '/pi/:digits' do
+  result = pi(params[:digits])
+  if result
+    status 200
+    body result.to_json
+  else
+    status 500
+    body "ERROR".to_json
+  end
+end
+  
 get '/inspect/:url' do
   page = MetaInspector.new(self.url)
   website = Website.new(json_params)
