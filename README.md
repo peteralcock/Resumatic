@@ -185,8 +185,9 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 ```
 
 
+------------------------------------------
 
-# Deploying to AWS
+# Deploying to Production
 
 Lamda is an AWS service which lets you run code without provisioning full servers. You pay only for the compute time and not when your code is not running. The price of execution depends of how much memory you allocate and how long it will took to finish your code's execution. Duration is calculated from the time your code begins executing until it returns or otherwise terminates, rounded up to the nearest 100ms. If you need to run the same Lambda function simultaneously 10 times you have to spin up 10 separate Lamba invocations of the same functionality. However next execution of AWS lamda function will be executed on waiting AWS Lambda (no spin up is necessary you just invoke code/params on span-up one that is not performing anything), and depending on what programming lang you use, Java, C# would have slower cold starts than Python or Ruby.
 
@@ -195,9 +196,9 @@ Lamda is an AWS service which lets you run code without provisioning full server
 AWS Lambda has no routing inside as you would have in Ruby on Rails application. What you need to do is to plug routing solution to your individual Lambda Functions. AWS provides another product called AWS API Gateway in which you define what route will call what AWS Lambda / Lambdas. For example...
 
 
-GET /api/v1/candidates => call list_candidates AWS Lambda function
+GET /api/v1/candidates => calls list_candidates AWS Lambda function
 
-POST /api/v1/candidates => call create_candidate AWS Lambda function and pass the JSON request body to it e.g {"email": "you@example.org"}
+POST /api/v1/candidates => calls create_candidate AWS Lambda function and pass the JSON request 
 
 
 ** You can also configure proxy routes with * where anything (POST/GET/PUT/DELETED can be directed to a particular Lambda Function
