@@ -239,6 +239,7 @@ status, headers, body = $app.call(env)
 
 
 # Further Reading
-https://aws.amazon.com/blogs/compute/announcing-ruby-support-for-aws-lambda/
-https://github.com/aws-samples/serverless-sinatra-sample
+
+1. https://aws.amazon.com/blogs/compute/announcing-ruby-support-for-aws-lambda/
+2. https://github.com/aws-samples/serverless-sinatra-sample
 
