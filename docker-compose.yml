@@ -1,0 +1,51 @@
+version: '3'
+services:
+#  mysql:
+#    restart: always
+#    image: mysql:5.7
+#    volumes:
+#      - mysql-data:/var/lib/mysql/data
+#    ports:
+#      - "0.0.0.0:3306:3306"
+#  redis:
+#    restart: always
+#    image: redis:latest
+#    volumes:
+#      - redis-data:/var/lib/redis/data
+#    ports:
+#      - "0.0.0.0:6379:6379"
+
+#  elasticsearch:
+#    restart: always
+#    image: elasticsearch:6.4.2
+#    volumes:
+#      - elasticsearch-data:/var/lib/elasticsearch/data
+#    ports:
+#      - "0.0.0.0:9200:9200"
+  mongo:
+    restart: always
+    image: mongo:4
+    volumes:
+      - db-data:/data/db
+      - mongo-config:/data/configdb
+    ports:
+      - "27017:27017"
+
+  app:
+#    image: idai/api
+    build: .
+    volumes:
+      - app-data:/app
+    links:
+      - redis:redis
+      - mongo:mongo
+    ports:
+      - "0.0.0.0:4567:4567"
+
+volumes:
+  app-data:
+#  db-data:
+  mongo-config:
+#  elasticsearch-data:
+#  redis-data:
+#  mysql-data:
