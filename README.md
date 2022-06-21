@@ -194,10 +194,13 @@ Lamda is an AWS service which lets you run code without provisioning full server
 
 AWS Lambda has no routing inside as you would have in Ruby on Rails application. What you need to do is to plug routing solution to your individual Lambda Functions. AWS provides another product called AWS API Gateway in which you define what route will call what AWS Lambda / Lambdas. For example...
 
+
 GET /api/v1/candidates => call list_candidates AWS Lambda function
+
 POST /api/v1/candidates => call create_candidate AWS Lambda function and pass the JSON request body to it e.g {"email": "you@example.org"}
 
-You can also configure proxy routes with * where anything (POST/GET/PUT/DELETED can be directed to a particular Lambda Function
+
+** You can also configure proxy routes with * where anything (POST/GET/PUT/DELETED can be directed to a particular Lambda Function
 
 When you call ruby api.rb you will start the web server, but in production on Lambda the API Gateway is your web server. You just need to call the Rack part of Sinatra with your AWS Lambda function passing the request params/body from the AWS API Gateway, which will proxy any/every request to this one AWS Lambda that will spin up and execute one route of the Sinatra application. After the response is returned, Lambda will die. That means if this Sinatra app needs to receive 50 requests, it will spin up 50 AWS Lambda Functions, and next requests “may be” executed on loaded up Lambdas with Sinatra dependancies in memory. If there are 1000 requests concurrently, AWS will try to run 1000 invocations for the same Lambda function. However, if it’s 1000 requests/second, and each request only needs 200 ms to process, there could only be 200 concurrent invocations at any point of time. You need to have your Lambda functions load up fast otherwise you will have slow response times and pay more than you would with server running 24h a day.
 
