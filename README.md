@@ -186,7 +186,7 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 
 
 
-# Deploying to AWS Lambda
+# Deploying to AWS
 
 Lamda is an AWS service which lets you run code without provisioning full servers. You pay only for the compute time and not when your code is not running. The price of execution depends of how much memory you allocate and how long it will took to finish your code's execution. Duration is calculated from the time your code begins executing until it returns or otherwise terminates, rounded up to the nearest 100ms. If you need to run the same Lambda function simultaneously 10 times you have to spin up 10 separate Lamba invocations of the same functionality. However next execution of AWS lamda function will be executed on waiting AWS Lambda (no spin up is necessary you just invoke code/params on span-up one that is not performing anything), and depending on what programming lang you use, Java, C# would have slower cold starts than Python or Ruby.
 
