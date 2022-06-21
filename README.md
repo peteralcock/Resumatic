@@ -29,7 +29,7 @@ Models:
 ------------------------------------
 
 
-## Scoring resumes for jobs
+# Getting Started
 Score any candidates' potential for any tech job listing using the candidate's email address followed by the job ID for the position they're considering.
 
 - `GET /score/candidate@example.com/1234` will return the score of the candidates potential for the job with an ID of `1234`.
