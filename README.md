@@ -1,4 +1,4 @@
-# Res-U-matic
+# Res-O-matic
 ![All your resume are belong to us.](/robot.jpg?raw=true "10X.AI")
 
 "Welcome to the machine, bitch."
